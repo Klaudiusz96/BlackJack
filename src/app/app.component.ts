@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {Card} from './model/Card';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'BlackJack';
+  public card: Card = Card.createCard();
+  public title = 'BlackJack';
+  public info: string;
+
+  public checkValue(): string {
+    if (this.card.value === 1 || this.card.value === 11) {
+      this.info = 'You have drawn 1 or 11';
+    } else {
+      this.info = 'You have drawn neither 1 nor 11';
+    }
+    return this.info;
+  }
+
+  public drawCard(): void {
+    this.card = Card.createCard();
+  }
 }

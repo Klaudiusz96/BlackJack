@@ -1,6 +1,13 @@
 <div class="text-center">
   <h1>My first header with title: {{title}}!</h1>
 
-  <p>My card value: {{card.value}} - {{checkValue()}}</p>
+ <p>Sum of values: {{getCardsValueSum()}}</p>
+
   <button class="btn btn-dark" type="button" (click)="drawCard()">Draw a number!</button>
+  <button class="btn btn-danger" type="button" (click)="clearCards()">Clear!</button>
+  <ul id="cards">
+    <li *ngFor="let card of cards">
+      <span>Value: {{card.getValue()}}</span> {{card.getColour()}}
+    </li>
+  </ul>
 </div>
